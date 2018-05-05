@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="right">
+        <h1>상 사 욕</h1>
+            
+        <p>상사 이름 뭐에여</p>
+        <form action="/chat/name">
+            <input type="text" name="name">
+            <input type="submit">
+        </form>
+            
+        <form action="/chat/create">
+            <input type="text" name="content">
+            <input type="submit">
+        </form>
+            
+            <% Chat.all.each do |c| %>
+                <% if (c.is_man)%>
+                    
+                    <div class="true"><%= "사람" %> : <%=c.content%></li>
+                    <a href="/chat/destroy/<%= c.id %>">[삭제]</a>
+                    
+                <%else%>
+                    <div class="false"><%= "#{@name}" %> : <%=c.content%></li>
+                    
+                    <a href="/chat/destroy/<%= c.id %>">[삭제]</a>
+                <% end %>
+            <%end%>
+    </div>
+</div>
